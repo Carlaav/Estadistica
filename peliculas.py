@@ -24,7 +24,7 @@ def varianza(data):
     varianza = count/data["Cantidad de volantes (Ni)"].sum()
     return varianza
 
-def visualizacion(media, desviacion):
+def porcent(media, desviacion):
     print("el 68% de los datos estan entre:", media-desviacion, "y", media+desviacion)
     print("el 95% de los datos estan entre:", media-2*desviacion, "y", media+2*desviacion)
     print("el 99.7% de los datos estan entre:", media-3*desviacion, "y", media+3*desviacion)
@@ -35,8 +35,11 @@ def grafica(data):
     sns.barplot(data = data, x = "Opinion xi", y="Cantidad de volantes (Ni)", color = "Blue")
     sns.lineplot(data = data, x = "Opinion xi", y="Cantidad de volantes (Ni)", color = "Orange")
 
-media_ponderada(data)
-x=varianza(data)
-desviacion= x**0.5
-visualizacion(media_ponderada(data), desviacion)
-grafica(data)
+
+
+def ejerPeliculas(data):
+    media_ponderada(data)
+    x=varianza(data)
+    desviacion= x**0.5
+    porcent(media_ponderada(data), desviacion)
+    grafica(data)
